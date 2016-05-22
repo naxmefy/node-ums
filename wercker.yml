@@ -1,0 +1,12 @@
+box: node:4.4.4
+
+build:
+  steps:
+    - npm-install
+    - npm-test
+
+deploy:
+  steps:
+    - heroku-deploy:
+      key-name: HEROKU_DEPLOY_KEY_NAME
+      app-name: $HEROKU_APP_NAME
