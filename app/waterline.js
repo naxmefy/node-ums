@@ -8,7 +8,7 @@ const pluralize = require('pluralize');
 
 module.exports = function(app, done) {
     app.context.ORM = new waterline();
-    
+
     // Load Models
     const models = requireDir(path.resolve(__dirname, 'models'));
     _.forEach(models, (model, key) => {
@@ -16,17 +16,17 @@ module.exports = function(app, done) {
             identity: _.camelCase(pluralize(key)),
             tableName: _.camelCase(pluralize(key))
         }, app.context.config.waterline.modelDefaults, model);
-        
+        app.log.info('Load Model: %s', modelConf.identity);
         const waterlineModel = waterline.Collection.extend(modelConf);
         app.context.ORM.loadCollection(waterlineModel);
     });
-    
+
     // Initialize Waterline ORM
     app.context.ORM.initialize(app.context.config.waterline, (err, models) => {
         if(err) {
            return done(err);
         }
-        
+
         app.context.models = models.collections;
         app.context.connections = models.connections;
         done();
