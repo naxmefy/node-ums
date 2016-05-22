@@ -1,0 +1,6 @@
+--colors
+--timeout 5000
+--ui bdd
+--reporter list
+--recursive
+--require should

@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "main": "app/index.js",
+  "scripts": {
+    "dev": "nodemon app/index.js",
+    "start": "node app/index.js",
+    "test": "mocha test",
+    "test-cov": "istanbul cover _mocha test"
+  },
+  "dependencies": {
+    "async": "2.0.0-rc.5",
+    "damn-support": "0.0.12",
+    "damn-utils": "0.0.13",
+    "koa": "1.2.0",
+    "koa-router": "5.4.0",
+    "lodash": "4.12.0",
+    "pluralize": "2.0.0",
+    "require-dir": "0.3.0",
+    "sails-disk": "0.10.9",
+    "sails-mysql": "0.12.1",
+    "waterline": "0.12.1"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.3",
+    "mocha": "2.4.5",
+    "nodemon": "1.9.2",
+    "sails-memory": "0.10.6",
+    "should": "8.4.0",
+    "supertest": "1.2.0"
+  }
+}
