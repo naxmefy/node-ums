@@ -4,6 +4,10 @@ module.exports = function *(next) {
     try {
         yield next;
 
+        if(this.request.fields === this.body) {
+            this.response.status = 404;
+        }
+
         if(this.response.status === 404 || !this.response.body) {
             if(this.log) {
                 this.log.warn('404 - Route not found.', this.url);

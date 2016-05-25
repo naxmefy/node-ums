@@ -7,6 +7,8 @@ const sailsPostgresql = require('sails-postgresql');
 module.exports = {
     ip: process.env.IP || '',
     port: process.env.PORT || 3000,
+    
+    secret: process.env.SECRET_TOKEN || 'our.secret.token.secret',
 
     log: {
         name: process.env.LOG_NAME || 'ums',

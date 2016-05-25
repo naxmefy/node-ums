@@ -8,6 +8,9 @@ const damnUtils = require('damn-utils');
 const app = module.exports = koa();
 app.server = http.createServer(app.callback());
 
+// extend querystring - for nested properties
+require('koa-qs')(app, 'extended');
+
 const config = require('./config');
 const context = require('./context');
 const routes = require('./routes');
